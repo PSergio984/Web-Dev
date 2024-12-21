@@ -1,0 +1,21 @@
+p{
+    background-color:lightpink;
+    font-family: Verdana,"DejaVu Sans", sans-serif;
+}
+
+.adjust-font-size{
+    font-size: 24px;
+}
+
+div{
+    font-family:"Times new roman",serif;
+   
+}
+.second{
+    font-size:36px;
+    color:blue;
+}
+.fourth{
+    font-weight:bold;
+    background-color:lightgreen;
+}
