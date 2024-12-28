@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+      var num1 = prompt("Enter a number");
+        num1 = parseInt(num1); 
+        var res1 = (num) => num + 7; 
+        alert(res1(num1));
+
+        var num2 = prompt("Enter num1");
+        var num3 = prompt("Enter num2");
+        num2 = parseInt(num2);
+        num3 = parseInt(num3);
+        var res1 = (num2,num3) => num2 * num3;
+        alert(res1(num2,num3));
+
+        var word = prompt("Prompt a word to capitalize the first letter");
+        var res1 = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+        alert(res1(word));
+
+        var word2 = prompt("Prompt a word to returnt the last letter");
+        var last = (word2) => word2.charAt(word2.length-1);
+        alert(last(word2));
+    </script>
+</body>
+</html>
