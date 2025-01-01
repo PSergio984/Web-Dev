@@ -10,7 +10,7 @@ function getComputerChoice(max) {
 }
 
 function getHumanChoice() {
-  return prompt('Enter your choice: rock, paper, or scissors').toLowerCase();
+ 
 }
 
 var humanScore = 0, computerScore = 0;
@@ -31,11 +31,12 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  for (let i = 0; i < 5; i++) {
+  
       const humanSelection = getHumanChoice();
       const computerSelection = getComputerChoice(3);
       playRound(humanSelection, computerSelection);
-  }
+  
+
   alert(`FINAL SCORE: Human: ${humanScore} - Computer: ${computerScore}.`);
   if (humanScore > computerScore) {
     alert(` Human wins the game`);
@@ -46,4 +47,4 @@ function playGame() {
  }
 }
 
-playGame();
+//playGame();
