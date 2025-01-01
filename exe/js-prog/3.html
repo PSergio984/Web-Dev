@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href= "../css/style17.css">
+    <script src="../js/3.js" defer></script>
     <title>Shopping List</title>
 </head>
 
@@ -17,13 +18,13 @@
    <div class ="container-body">
     <h2 class="title">Add Items</h2>
 
-    <form id="addForm" class="form-inline mb-3">
-      <input type="text" class="body-search" placeholder = "Add items">
+    <form id="addForm">
+      <input type="text" class="body-add" id ="item" placeholder = "Add items">
       <input type="submit" class="submit" value ="Submit">
     </form>
 
     <h2 class="title">Items</h2>
-    <ul class="list-group">
+    <ul class="list-group" id = "item-list">
       <li class="list-group-item">Item 1 <button class="btn-ex">X</button></li>
       <li class="list-group-item">Item 2 <button class="btn-ex">X</button></li>
       <li class="list-group-item">Item 3 <button class="btn-ex">X</button></li>
@@ -32,6 +33,5 @@
 
    </div>
 </div>
-
   </body>
 </html>
