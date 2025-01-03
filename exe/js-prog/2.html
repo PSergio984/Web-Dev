@@ -10,8 +10,58 @@
 </head>
 <body>
 
-    <i class="ra ra-sword ra-2x"></i>
-    <i class ="ra ra-axe"> </i>
-    <i class = "ra ra-trident"></i>   
+    <header>
+        <div class ="title">
+            <span class = "sword"> SWORD</span> 
+            <span class = "axe">AXE</span> 
+            <span class = "trident">TRIDENT</span>
+        </div>
+        <div class = "rules">
+            <span class = "sword"> Sword </span> Beats <span class = "axe">Axe</span> 
+            <span class = "axe">Axe</span>  Beats <span class = "trident">Trident</span>
+            <span class = "trident">Trident</span> <span class = "Sword">Sword</span>
+        </div>
+    </header>
+
+    <div class = "button">
+        <button>
+            <i class="ra ra-sword ra-4x"></i>
+        </button>
+
+        <button>
+            <i class ="ra ra-axe ra-4x"> </i>
+        </button>
+
+        <button>     
+            <i class = "ra ra-trident ra-4x"></i>   
+        </button>
+    </div>
+    <div class ="divider">
+        <img src = "../images/divider.png">
+    </div>
+
+    <div class = "result">
+        <div class = "enemy-choice">
+            Enemy's Weapon
+            <i class =" ra ra-monster-skull ra-4x"></i>
+        </div>
+        
+        <div class = "score">
+            <p class="round">Round: 0</p>
+            <p class="lives">Your Lives: 5 ︱ Enemy's Lives: 5</p>
+            <p class="combat-text">Combat Area: Empty</p>
+        </div>
+    </div>
+
+    <div class="game-end-div">
+        <p class="game-end-text"></p>
+        <button class="play-again">Fight Again!</button>
+    </div>
+
+
+    <footer class="copyright">
+      <p>⚔︎ Created By Amiggas ⚔︎</p>
+    </footer>
+
 </body>
 </html>

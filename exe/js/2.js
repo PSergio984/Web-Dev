@@ -9,9 +9,7 @@ function getComputerChoice(max) {
   }
 }
 
-function getHumanChoice() {
- 
-}
+
 
 var humanScore = 0, computerScore = 0;
 
