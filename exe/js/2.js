@@ -1,3 +1,4 @@
+
 function getComputerChoice(max) {
   const randomNum = Math.floor(Math.random() * max);
   if (randomNum === 0) {
