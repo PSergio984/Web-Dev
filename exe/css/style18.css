@@ -30,21 +30,7 @@ header{
     font-weight: bold;
 }
 
-.sword{
-    color:#F6B2B2;
-}
 
-.axe{
-    color:#A8D8D0;
-}
-
-.trident{
-    color:#D1C6E7;
-}
-
-button{
-    all: unset;
-}
 
 .main-content{
     display:flex;
@@ -55,6 +41,45 @@ button{
     width: 510px;
     height:200px;
 }
+button{
+    all: unset;
+}
+
+.sword{
+    color:#F6B2B2;
+}
+
+.axe{
+    color:#A8D8D0;
+}
+
+.trident {
+    color: #D1C6E7;
+}
+
+.weapon-icon {
+    font-size:100px;
+    transition: all .3s;
+  }
+
+.weapon-icon:hover {
+    cursor: pointer;
+    transition: all .3s;
+    font-size:150px;
+ }
+
+.sword:hover {
+    color: #D69A9A !important;
+}
+
+.axe:hover{
+    color: #8BBEB1 !important;
+}
+
+.trident:hover {
+    color: #B3A3C3 !important;
+}
+
 
 .separator {
     margin-left: auto;

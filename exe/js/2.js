@@ -2,11 +2,11 @@
 function getComputerChoice(max) {
   const randomNum = Math.floor(Math.random() * max);
   if (randomNum === 0) {
-      return 'rock';
+      return 'sword';
   } else if (randomNum === 1) {
-      return 'paper';
+      return 'axe';
   } else {
-      return 'scissors';
+      return 'tridents';
   }
 }
 
@@ -15,16 +15,15 @@ function getComputerChoice(max) {
 var humanScore = 0, computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  alert('Computer chose: ' + computerChoice);
   if (humanChoice === computerChoice) {
-      alert('It is a tie');
+      
   } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
              (humanChoice === 'paper' && computerChoice === 'rock') ||
              (humanChoice === 'scissors' && computerChoice === 'paper')) {
-      alert('You win');
+     
       humanScore++;
   } else {
-      alert('You lose');
+      
       computerScore++;
   }
 }
