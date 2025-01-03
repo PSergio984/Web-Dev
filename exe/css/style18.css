@@ -84,6 +84,7 @@ button{
 .separator {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom:10px;
     width: 30%;
   }
 
@@ -112,9 +113,7 @@ button{
   transition: all 0.2s linear;
 }
 
-.enemy-choice > i {
-  margin: 0 auto; /* Center icons inside enemy choice */
-}
+
 
 .output {
   padding: 10px; /* Add spacing around the text */
@@ -136,6 +135,7 @@ button{
   .game-end-text {
     font-size: 50px;
   }
+  
   .play-again {
     visibility: hidden;
     margin-bottom: 60px;
