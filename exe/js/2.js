@@ -1,3 +1,10 @@
+const buttonPlayAgain = document.querySelector('.play-again');
+
+ // Add event listeners to weapon icons
+ document.querySelectorAll('.weapon-icon').forEach(icon => 
+  icon.addEventListener('click', getHumanChoice)
+);
+
 
 function getComputerChoice(max) {
     const randomNum = Math.floor(Math.random() * max);
@@ -9,11 +16,7 @@ function getComputerChoice(max) {
         return 'trident';
     }
   }
-    // Add event listeners to weapon icons
-    document.querySelectorAll('.weapon-icon').forEach(icon => 
-        icon.addEventListener('click', getHumanChoice)
-      );
-      
+   
   var humanLives = 5, computerLives = 5,round =0;
   
   function getHumanChoice(e) {
@@ -28,16 +31,16 @@ function getComputerChoice(max) {
 
   function playRound(humanChoice, computerChoice) {
     round++; 
-    const roundTextElement = document.querySelector('.round');
+     roundTextElement = document.querySelector('.round');
     roundTextElement.textContent = `⚔️ Round ${round} ⚔️`;
 
-    const combatOutputElement = document.querySelector('.combat-text');
-    const lifeTextElement = document.querySelector('.lives');
+     combatOutputElement = document.querySelector('.combat-text');
+     lifeTextElement = document.querySelector('.lives');
 
-    const resultDiv = document.querySelector('.result');
-    const outputDiv =  document.querySelector('.output');
+    resultDiv = document.querySelector('.result');
+     outputDiv =  document.querySelector('.output');
 
-    const enemyChoiceIcon = document.querySelector('.enemy-icon');
+    enemyChoiceIcon = document.querySelector('.enemy-icon');
     enemyChoiceIcon.classList.remove('ra-monster-skull','ra-sword','ra-axe','ra-trident');
    
     if (computerChoice === 'sword') {
@@ -82,12 +85,41 @@ function getComputerChoice(max) {
 }
 
 function endGame() {
-  document.querySelectorAll('.main-content button').forEach(button => {
-      button.disabled = true; 
-  });
+  disableButtons();
+     endText =document.querySelector('.game-end-text');
+     
+     //disable events when the game ends
+     document.querySelector('.main-content').style.pointerEvents = 'none';
 
-  document.querySelectorAll('.weapon-icon').forEach(icon => {
-      icon.removeEventListener('click', getHumanChoice); 
-      icon.remove
+
+    if(computerLives===0){
+      endText.classList.add('axe');
+      endText.textContent= 'You Win, Congratulations';
+
+    }
+    else{
+      endText.classList.add('sword')
+      endText.textContent= 'You lost, Good Luck Next Time';
+    }
+    resetGame();
+    buttonPlayAgain.style.visibility = 'visible';
+  }
+
+
+
+function disableButtons(){
+  document.querySelectorAll('.main-content button').forEach(button => {
+    button.disabled = true; 
+});
+
+document.querySelectorAll('.weapon-icon').forEach(icon => {
+    icon.removeEventListener('click', getHumanChoice); 
+    icon.remove
+});
+}
+
+function resetGame() {
+  buttonPlayAgain.addEventListener('click', () => {
+    window.location.reload();
   });
 }
