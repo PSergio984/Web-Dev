@@ -5,7 +5,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.title{
+  font-size:100px;
+  font-weight:900px;
+}
 .header {
   height: 72px;
   background: darkmagenta;
