@@ -80,7 +80,12 @@ button{
     color: #B3A3C3 !important;
 }
 
-
+.weapon-icon.disable-hover:hover {
+    font-size: 100px !important;
+    color: #0a1010 !important;
+    cursor: default !important;
+    transition: none;
+}
 .separator {
     margin-left: auto;
     margin-right: auto;
@@ -131,6 +136,7 @@ button{
 
 .game-end-div {
     text-align: center;
+    
   }
   .game-end-text {
     font-size: 50px;
