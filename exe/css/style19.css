@@ -9,6 +9,7 @@ body {
   display:flex;
   flex-direction:column;
   background-color: #050b0e;
+  min-height: 100vh;
 }
 
 header{
@@ -28,19 +29,46 @@ header{
 .tools{
     display:flex;
     flex-direction:column;
-    border: 10px solid #107296;
+    background-color: #202020;
     justify-content:space-between;
     margin:5px;
-    padding:10px;
+    padding:20px;
+    width:200px;
 }
 
 .main-content{
     display:flex;
     justify-content:center;
-    border: 10px solid #107296;
+    border: 10px solid  #3C434A;
     background-color: #edf3f5;
-    width:400px;
-    height:400px;
+    width:500px;
+    height:500px;
+}
+
+button{
+    background-color: #0cbcfc;
+    color:#050b0e;
+    padding:10px 5px;
+    border-radius:10px;
+    border: none; 
+    transition: all ease 0.2s; 
+}
+
+button:hover{
+    transform: translate(2px, -3px);
+    box-shadow: 0 10px 20px #107296; 
+}
+
+footer{
+    display: flex;
+    margin-top: auto;
+    justify-content: center;
+    background-color:#107296;
+    color:#edf3f5;
+    font-size:20px;
+    font-weight:900;
+    padding:10px;
+    
 }
 
 
