@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Kay%20Pho%20Du:700|Kay%20Pho%20Du:400');
+
+body {
+  font-family: 'Kay Pho Du';
+  font-weight: 400;
+  box-sizing:border-box;
+  margin:0px;
+  padding:0px;
+  display:flex;
+  flex-direction:column;
+  background-color: #050b0e;
+}
+
+header{
+    display:flex;
+    justify-content:center;
+    font-size: 48px;
+    color:#edf3f5;
+}
+
+
+.content{
+    display:flex;
+    justify-content: center;   
+    gap:100px;
+}
+
+.tools{
+    display:flex;
+    flex-direction:column;
+    border: 10px solid #107296;
+    justify-content:space-between;
+    margin:5px;
+    padding:10px;
+}
+
+.main-content{
+    display:flex;
+    justify-content:center;
+    border: 10px solid #107296;
+    background-color: #edf3f5;
+    width:400px;
+    height:400px;
+}
+
+
