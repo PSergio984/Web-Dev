@@ -36,14 +36,23 @@ header{
     width:200px;
 }
 
-.main-content{
-    display:flex;
-    justify-content:center;
-    border: 10px solid  #3C434A;
+.main-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of grid elements */
+    align-content: flex-start; /* Align rows to the top */
+    width: 500px; /* Fixed container size */
+    height: 500px;
+    border: 10px solid #3C434A; /* Container border */
     background-color: #edf3f5;
-    width:500px;
-    height:500px;
-}
+   
+  }
+  
+  .grid-element {
+    border: 0.5px solid violet; /* Grid cell border */
+    background-color: red; /* Default grid cell background */
+    box-sizing: border-box; /* Include border in size calculations */
+  }
+  
 
 button{
     background-color: #0cbcfc;
