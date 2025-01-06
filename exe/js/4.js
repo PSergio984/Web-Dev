@@ -10,20 +10,36 @@ const grid = document.querySelector('.main-content');
 
 addEventClick('.btnClearAll', clearAll);
 
+
+const btnColor = document.querySelector('.btnColor');
+btnColor.addEventListener('click',activateButton);
+
+// Use change event for color picker
+const colorPicker = document.querySelector('#colorPicker');
+if (colorPicker) {
+  colorPicker.addEventListener('change', (e) => {
+    currentColor = e.target.value; // Update currentColor with the selected color
+  });
+}
+
+
+
 function addEventClick(buttonSelector, func) {
   const button = document.querySelector(buttonSelector);
   if (button) {
-    button.addEventListener('click', func);
-  } else {
-    console.error(`Button with selector ${buttonSelector} not found.`);
-  }
+    button.addEventListener('click', func); 
+  } 
 }
 
+function activateButton(e) {
+  e.target.style.backgroundColor ='#107296';
+}
+
+
 function clearAll() {
-  alert('nigga');
- // document.querySelectorAll('.grid-element').forEach(element => {
-  //  element.style.backgroundColor = 'white'; // Reset color
- // });
+ document.querySelectorAll('.grid-element').forEach(element => {
+   element.style.backgroundColor = '#edf3f5'; // Reset color
+  });
 }
 
 // Function to set up the grid using Flexbox with correct sizing
@@ -44,15 +60,55 @@ function setupGrid(size) {
 
     }
 }
+function gridAddEventHover(currentMode) {
+  let isDrawing = false; // Tracks whether the mouse is held down
 
-  
-  
-  
+  // Add event listeners to all grid elements
+  document.querySelectorAll('.grid-element').forEach(element => {
+    // When the mouse is pressed down, start drawing
+    element.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      colorGrid(currentMode, e); // Apply color immediately
+    });
+
+    // Apply color as the mouse moves while pressed down
+    element.addEventListener('mousemove', (e) => {
+      if (isDrawing) {
+        colorGrid(currentMode, e);
+      }
+    });
+
+    // Stop drawing when the mouse button is released
+    element.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+
+    // Handle when the mouse leaves the grid 
+    element.addEventListener('mouseleave', (e) => {
+      if (isDrawing) {
+        colorGrid(currentMode, e);
+      }
+    });
+  });
+
+  // Ensure mouse state resets if released outside grid
+  document.addEventListener('mouseup', () => {
+    isDrawing = false;
+  });
+}
+
+function colorGrid(currentMode, e) {
+  if (currentMode === 'rainbow') {
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+  } else {
+    e.target.style.backgroundColor = currentColor;
+  }
+}
+
 window.onload = () => {
   setupGrid(DEFAULT_SIZE);
+  gridAddEventHover();
 };
-
-// Add button styles for active modes (if applicable)
-function activateButton(mode) {
-  console.log(`Active mode: ${mode}`); // Placeholder for mode switching
-}
