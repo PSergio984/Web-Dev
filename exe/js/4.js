@@ -7,6 +7,17 @@ let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
 
 const grid = document.querySelector('.main-content');
+const slider = document.querySelector('.range');
+const sliderTxt = document.querySelector('.sizeTxt');
+
+sliderTxt.textContent = slider.value;
+
+slider.oninput = (e) => {
+  sliderTxt.textContent = e.target.value;
+  currentSize = e.target.value;
+  setupGrid(currentSize);
+}
+
 
 addEventClick('.btnClearAll', clearAll);
 
