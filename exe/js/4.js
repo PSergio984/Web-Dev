@@ -54,7 +54,7 @@ function clearAll() {
 }
 
 // Function to set up the grid using Flexbox with correct sizing
-function setupGrid(size) {
+function setupGrid(size,currentMode) {
     // Clear any existing grid elements
     grid.innerHTML = '';
 
@@ -70,6 +70,7 @@ function setupGrid(size) {
         grid.appendChild(square);
 
     }
+    gridAddEventHover(currentMode);
 }
 function gridAddEventHover(currentMode) {
   let isDrawing = false; // Tracks whether the mouse is held down
