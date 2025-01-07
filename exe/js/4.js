@@ -10,10 +10,10 @@ const grid = document.querySelector('.main-content');
 const slider = document.querySelector('.range');
 const sliderTxt = document.querySelector('.sizeTxt');
 
-sliderTxt.textContent = slider.value;
+//sets the slidertxt based onthe value of the slider
 
 slider.oninput = (e) => {
-  sliderTxt.textContent = e.target.value;
+  sliderTxt.textContent = `${e.target.value} X ${e.target.value}`;
   currentSize = e.target.value;
   setupGrid(currentSize);
 }
@@ -80,7 +80,7 @@ function gridAddEventHover(currentMode) {
     // When the mouse is pressed down, start drawing
     element.addEventListener('mousedown', (e) => {
       isDrawing = true;
-      colorGrid(currentMode, e); // Apply color immediately
+      colorGrid(currentMode, e); 
     });
 
     // Apply color as the mouse moves while pressed down
