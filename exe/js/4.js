@@ -1,10 +1,10 @@
 const DEFAULT_SIZE = 16;
-const DEFAULT_COLOR = 'black' // Define DEFAULT_COLOR
-const DEFAULT_MODE = 'color'; // Define DEFAULT_MODE
+const DEFAULT_COLOR = "#050b0e"; // Define DEFAULT_COLOR
+const DEFAULT_MODE = "color"; // Define DEFAULT_MODE
 
-let currentColor = DEFAULT_COLOR;
-let currentMode = DEFAULT_MODE;
-let currentSize = DEFAULT_SIZE;
+var currentColor = DEFAULT_COLOR;
+var currentMode = DEFAULT_MODE;
+var currentSize = DEFAULT_SIZE;
 
 const grid = document.querySelector('.main-content');
 const slider = document.querySelector('.range');
@@ -12,12 +12,34 @@ const sliderTxt = document.querySelector('.sizeTxt');
 const fillAll = document.querySelector('.btnFillAll');
 const eraserBtn = document.querySelector('.btnEraser');
 const colorBtn = document.querySelector('.btnColor');
+const rainbowBtn = document.querySelector('.btnRainbow');
 
-eraserBtn.addEventListener('click',() =>{
- currentMode ='erase';
-});
+// event listeners for mode buttons
+eraserBtn.addEventListener('click', () => changeMode('erase'));
+colorBtn.addEventListener('click', () => changeMode('color'));
+rainbowBtn.addEventListener('click', () => changeMode('rainbow'));
 
+// Centralize mode change handling
+function changeMode(newMode) {
+  currentMode = newMode;
 
+  //changing the color of the button based on the active mode
+  if(currentMode == 'rainbow'){
+    rainbowBtn.style.backgroundColor = '#107296';
+    colorBtn.style.backgroundColor = '#0cbcfc';
+    eraserBtn.style.backgroundColor = '#0cbcfc';
+  }
+  else if(currentMode == 'color') {
+    rainbowBtn.style.backgroundColor = '#0cbcfc';
+    colorBtn.style.backgroundColor = '#107296';
+    eraserBtn.style.backgroundColor = '#0cbcfc';
+  }
+  else{
+    rainbowBtn.style.backgroundColor = '#0cbcfc';
+    colorBtn.style.backgroundColor = '#0cbcfc';
+    eraserBtn.style.backgroundColor = '#107296';
+  }
+}
 
 //fill all the grid element based on the current color
 fillAll.addEventListener('click',()=>{
@@ -28,7 +50,6 @@ fillAll.addEventListener('click',()=>{
 
 
 //sets the slidertxt based onthe value of the slider
-
 slider.oninput = (e) => {
   sliderTxt.textContent = `${e.target.value} X ${e.target.value}`;
   currentSize = e.target.value;
@@ -37,10 +58,6 @@ slider.oninput = (e) => {
 
 
 addEventClick('.btnClearAll', clearAll);
-
-
-const btnColor = document.querySelector('.btnColor');
-btnColor.addEventListener('click',activateButton);
 
 // Use change event for color picker
 const colorPicker = document.querySelector('#colorPicker');
@@ -51,16 +68,11 @@ if (colorPicker) {
 }
 
 
-
 function addEventClick(buttonSelector, func) {
   const button = document.querySelector(buttonSelector);
   if (button) {
     button.addEventListener('click', func); 
   } 
-}
-
-function activateButton(e) {
-  e.target.style.backgroundColor ='#107296';
 }
 
 
@@ -89,7 +101,7 @@ function setupGrid(size,currentMode) {
     }
     gridAddEventHover(currentMode);
 }
-function gridAddEventHover(currentMode) {
+function gridAddEventHover() {
   let isDrawing = false; // Tracks whether the mouse is held down
 
   // Add event listeners to all grid elements
@@ -97,13 +109,13 @@ function gridAddEventHover(currentMode) {
     // When the mouse is pressed down, start drawing
     element.addEventListener('mousedown', (e) => {
       isDrawing = true;
-      colorGrid(currentMode, e); 
+      colorGrid(e); 
     });
 
     // Apply color as the mouse moves while pressed down
     element.addEventListener('mousemove', (e) => {
       if (isDrawing) {
-        colorGrid(currentMode, e);
+        colorGrid(e);
       }
     });
 
@@ -115,7 +127,7 @@ function gridAddEventHover(currentMode) {
     // Handle when the mouse leaves the grid 
     element.addEventListener('mouseleave', (e) => {
       if (isDrawing) {
-        colorGrid(currentMode, e);
+        colorGrid(e);
       }
     });
   });
@@ -126,22 +138,31 @@ function gridAddEventHover(currentMode) {
   });
 }
 
-function colorGrid(currentMode, e) {
+function colorGrid(e) {
   if (currentMode === 'rainbow') {
-    const randomR = Math.floor(Math.random() * 256);
-    const randomG = Math.floor(Math.random() * 256);
-    const randomB = Math.floor(Math.random() * 256);
+     randomR = Math.floor(Math.random() * 256);
+     randomG = Math.floor(Math.random() * 256);
+     randomB = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    rainbowBtn.style.backgroundColor = '#107296';
+    colorBtn.style.backgroundColor = '#0cbcfc';
+    eraserBtn.style.backgroundColor = '#0cbcfc';
   } else if(currentMode === 'color'){
     e.target.style.backgroundColor = currentColor;
+    rainbowBtn.style.backgroundColor = '#0cbcfc';
+    colorBtn.style.backgroundColor = '#107296';
+    eraserBtn.style.backgroundColor = '#0cbcfc';
   }
-    else{
-      e.target.style.backgroundColor = DEFAULT_COLOR;
+    else if (currentMode === 'erase'){
+      e.target.style.backgroundColor ='#edf3f5';
+      rainbowBtn.style.backgroundColor = '#0cbcfc';
+    colorBtn.style.backgroundColor = '#0cbcfc';
+    eraserBtn.style.backgroundColor = '#107296';
     }
   
 }
 
 window.onload = () => {
   setupGrid(DEFAULT_SIZE);
-  gridAddEventHover();
+  gridAddEventHover(currentMode);  // Pass currentMode
 };
