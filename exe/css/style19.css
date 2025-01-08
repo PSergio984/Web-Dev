@@ -24,6 +24,7 @@ header{
     display:flex;
     justify-content: center;   
     gap:100px;
+    margin:30px;
 }
 
 .tools{
@@ -44,6 +45,7 @@ header{
     height: 500px;
     border: 10px solid #3C434A; 
     background-color: #edf3f5;
+  
   }
   
   .grid-element {

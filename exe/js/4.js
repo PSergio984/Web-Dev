@@ -9,6 +9,13 @@ let currentSize = DEFAULT_SIZE;
 const grid = document.querySelector('.main-content');
 const slider = document.querySelector('.range');
 const sliderTxt = document.querySelector('.sizeTxt');
+const fillAll = document.querySelector('.btnFillAll');
+
+fillAll.addEventListener('click',()=>{
+  document.querySelectorAll('.grid-element').forEach(grid =>{
+    grid.style.backgroundColor = currentColor;
+  })
+})
 
 //sets the slidertxt based onthe value of the slider
 
