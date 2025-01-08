@@ -6,6 +6,7 @@ var currentColor = DEFAULT_COLOR;
 var currentMode = DEFAULT_MODE;
 var currentSize = DEFAULT_SIZE;
 
+//querying the buttons
 const grid = document.querySelector('.main-content');
 const slider = document.querySelector('.range');
 const sliderTxt = document.querySelector('.sizeTxt');
@@ -75,10 +76,10 @@ function addEventClick(buttonSelector, func) {
   } 
 }
 
-
+// Reset color
 function clearAll() {
  document.querySelectorAll('.grid-element').forEach(element => {
-   element.style.backgroundColor = '#edf3f5'; // Reset color
+   element.style.backgroundColor = '#edf3f5'; 
   });
 }
 
@@ -138,31 +139,25 @@ function gridAddEventHover() {
   });
 }
 
+//colors the grid based on the current mode
 function colorGrid(e) {
   if (currentMode === 'rainbow') {
      randomR = Math.floor(Math.random() * 256);
      randomG = Math.floor(Math.random() * 256);
      randomB = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-    rainbowBtn.style.backgroundColor = '#107296';
-    colorBtn.style.backgroundColor = '#0cbcfc';
-    eraserBtn.style.backgroundColor = '#0cbcfc';
+   
   } else if(currentMode === 'color'){
     e.target.style.backgroundColor = currentColor;
-    rainbowBtn.style.backgroundColor = '#0cbcfc';
-    colorBtn.style.backgroundColor = '#107296';
-    eraserBtn.style.backgroundColor = '#0cbcfc';
   }
     else if (currentMode === 'erase'){
       e.target.style.backgroundColor ='#edf3f5';
-      rainbowBtn.style.backgroundColor = '#0cbcfc';
-    colorBtn.style.backgroundColor = '#0cbcfc';
-    eraserBtn.style.backgroundColor = '#107296';
     }
   
 }
 
+
 window.onload = () => {
-  setupGrid(DEFAULT_SIZE);
-  gridAddEventHover(currentMode);  // Pass currentMode
+  setupGrid(DEFAULT_SIZE); //sets the grid and its pixels
+  gridAddEventHover(); //adds the events on the grid
 };

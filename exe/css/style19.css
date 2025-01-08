@@ -64,6 +64,10 @@ button{
     transition: all ease 0.2s; 
 }
 
+.btnColor{
+  background-color:#107296;
+}
+
 #colorPicker{
     width: 200px;
     height: 50px;
