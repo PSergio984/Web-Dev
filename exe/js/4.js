@@ -1,6 +1,6 @@
-const DEFAULT_COLOR = '#333333';
-const DEFAULT_MODE = 'color';
 const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = 'black' // Define DEFAULT_COLOR
+const DEFAULT_MODE = 'color'; // Define DEFAULT_MODE
 
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
@@ -10,12 +10,22 @@ const grid = document.querySelector('.main-content');
 const slider = document.querySelector('.range');
 const sliderTxt = document.querySelector('.sizeTxt');
 const fillAll = document.querySelector('.btnFillAll');
+const eraserBtn = document.querySelector('.btnEraser');
+const colorBtn = document.querySelector('.btnColor');
 
+eraserBtn.addEventListener('click',() =>{
+ currentMode ='erase';
+});
+
+
+
+//fill all the grid element based on the current color
 fillAll.addEventListener('click',()=>{
   document.querySelectorAll('.grid-element').forEach(grid =>{
     grid.style.backgroundColor = currentColor;
   })
 })
+
 
 //sets the slidertxt based onthe value of the slider
 
@@ -122,9 +132,13 @@ function colorGrid(currentMode, e) {
     const randomG = Math.floor(Math.random() * 256);
     const randomB = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-  } else {
+  } else if(currentMode === 'color'){
     e.target.style.backgroundColor = currentColor;
   }
+    else{
+      e.target.style.backgroundColor = DEFAULT_COLOR;
+    }
+  
 }
 
 window.onload = () => {
