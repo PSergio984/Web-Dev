@@ -1,6 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Kay%20Pho%20Du:700|Kay%20Pho%20Du:400');
 body {
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Kay Pho Du';
   font-weight: 400;
   box-sizing:border-box;
   margin:0px;
