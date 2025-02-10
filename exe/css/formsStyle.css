@@ -1,0 +1,47 @@
+:root{
+    --bgColor: rgba(2, 1, 0, 0.8);
+    --borderColor:#A7FFF6;
+}
+html {
+     font-size: 62.5%;
+} 
+@font-face{
+    font-family:arcane;
+    src:url(../fonts/Arcane\ Nine.otf);
+}
+body{
+    background-image: url(../images/vi.jpg);
+    display:flex;
+    justify-content: flex-end;
+    height:100vh;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+main{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:clamp(10%,25%,30%);
+   width:clamp(200px,45%,50%);
+    background-color:var(--bgColor);
+   
+}
+
+h1,h3{
+    color:white;
+    font-family: "arcane",'Times New Roman', Times, serif;
+}
+header{
+    border:1px solid white;
+    width:clamp(25%,50%,50%);
+    text-align:center;
+    height:75%;
+}
+h1{
+    font-size:10rem;
+}
+
+
