@@ -69,6 +69,7 @@ label {
     font-family: arcane, Arial, sans-serif;
     font-weight: bold;
     color: var(--titleColor);
+    transition: color 0.3s;
     margin-bottom:2px;
 }
 
@@ -89,7 +90,7 @@ form {
 }
 
 
-input {
+input { 
     width: 100%;
     border-radius: 5px;
     border: 2px solid var(--inputBorderColor);
